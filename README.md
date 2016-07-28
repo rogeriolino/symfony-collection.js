@@ -14,7 +14,8 @@ Symfony 3 collection jQuery handler
   
     <div class="entries">
         {% for child in form %}
-            {# entry fields #}
+            {{ form_errors(child) }}
+            {{ form_widget(child) }}
             
             <button type="button" class="btn-remove">Remove</button>
         {% endfor %}
