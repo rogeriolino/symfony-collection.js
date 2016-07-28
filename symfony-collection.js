@@ -18,7 +18,7 @@
             target = null;
         
         if (targetSelector.length) {
-            target = $(targetSelector);
+            target = elem.find(targetSelector);
         }
         
         if (!target) {
