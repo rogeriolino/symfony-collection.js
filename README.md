@@ -11,8 +11,9 @@ Symfony 3 collection jQuery handler
      data-btn-add="#btn-add"
      data-btn-remove=".btn-remove">
 
-    {# formtype #}
-
+    {% for child in form %}
+        {# entry fields #}
+    {% endfor %}
 </div>
 ```
 
@@ -35,7 +36,7 @@ $('[data-prototype]').collection({
 });
 ```
 
-# About Symfony CollectionTyp
+# About CollectionType
 
 http://symfony.com/doc/current/reference/forms/types/collection.html
 
