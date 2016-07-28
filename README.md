@@ -35,11 +35,25 @@ $('[data-prototype]').collection();
 
 ```js
 $('[data-prototype]').collection({
-    onadd: function(evt) {
+    onadd: function (evt) {
         console.log(evt);
+
+        alert('New entry added!');
     },
-    onremove: function(evt) {
+    onremove: function (evt) {
         console.log(evt);
+
+        alert('Entry removed!');
+    },
+    onpreadd: function (evt) {
+        console.log(evt);
+
+        return confirm('Do you really wanna add?');
+    },
+    onpreremove: function (evt) {
+        console.log(evt);
+
+        return confirm('Do you really wanna remove?');
     }
 });
 ```
