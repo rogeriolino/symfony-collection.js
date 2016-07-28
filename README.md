@@ -8,12 +8,19 @@ Symfony 3 collection jQuery handler
 
 ```html
 <div data-prototype="{{ form_widget(form.vars.prototype)|e('html_attr') }}" 
+     data-target=".entries"
      data-btn-add="#btn-add"
      data-btn-remove=".btn-remove">
-
-    {% for child in form %}
-        {# entry fields #}
-    {% endfor %}
+  
+    <div class="entries">
+        {% for child in form %}
+            {# entry fields #}
+            
+            <button type="button" class="btn-remove">Remove</button>
+        {% endfor %}
+    </div>
+    
+    <button type="button" id="btn-add">Add</button>
 </div>
 ```
 
