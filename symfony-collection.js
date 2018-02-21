@@ -39,7 +39,7 @@
             });
 
             if (btnAddSelector.length) {
-                $(btnAddSelector).on('click', addEntry);
+                elem.find(btnAddSelector).on('click', addEntry);
             }
 
             if (btnRemoveSelector.length) {
@@ -109,28 +109,27 @@
      */
 
     $.fn.collection = function (props) {
-        props = props || {};
-
         $(this).each(function() {
-            var elem = $(this);
+            var elem = $(this), 
+                config = $.extend({}, props);
 
-            if (!props.target) {
-                props.target = elem.data('target');
+            if (!config.target) {
+                config.target = elem.data('target');
             }
 
-            if (!props.btnAdd) {
-                props.btnAdd = $(elem.data('btn-add'));
+            if (!config.btnAdd) {
+                config.btnAdd = $(elem.data('btn-add'));
             }
 
-            if (!props.btnRemove) {
-                props.btnRemove = elem.data('btn-remove');
+            if (!config.btnRemove) {
+                config.btnRemove = elem.data('btn-remove');
             }
 
-            if (!props.prototype) {
-                props.prototype = elem.data('prototype');
+            if (!config.prototype) {
+                config.prototype = elem.data('prototype');
             }
 
-            SymfonyCollection(elem, props);
+            new SymfonyCollection(elem, config);
         });
 
         return this;
